@@ -17,7 +17,7 @@
 <meta property="og:description" content="线性筛经典题">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://wolf33blog.github.io/【洛谷】P1579-哥德巴赫猜想（升级版）/1.gif">
-<meta property="og:updated_time" content="2019-05-15T13:00:35.018Z">
+<meta property="og:updated_time" content="2019-05-15T13:09:01.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【洛谷】P1579 哥德巴赫猜想（升级版）">
 <meta name="twitter:description" content="线性筛经典题">
@@ -192,7 +192,7 @@
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> vis[<span class="number">20010</span>],prime[<span class="number">5010</span>];</span><br><span class="line"><span class="keyword">int</span> cnt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pri</span><span class="params">(<span class="keyword">int</span> size)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=size;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!vis[i])</span><br><span class="line">            prime[++cnt]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt &amp;&amp; i*prime[j]&lt;size;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            vis[i*prime[j]]=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(i*prime[j]==<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=x;i++)</span><br><span class="line">		<span class="keyword">if</span>(x%i==<span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n); </span><br><span class="line">    pri(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=cnt;i++)</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;=cnt;j++)</span><br><span class="line">    		<span class="keyword">if</span>(check(n-prime[i]-prime[j]) &amp;&amp; (n-prime[i]-prime[j])&gt;<span class="number">0</span> &amp;&amp; prime[i]&gt;<span class="number">0</span> &amp;&amp; prime[j]&gt;<span class="number">0</span>)</span><br><span class="line">    		&#123;</span><br><span class="line">    			<span class="built_in">printf</span>(<span class="string">"%d %d %d"</span>, prime[i],prime[j], n-prime[i]-prime[j]);</span><br><span class="line">    			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>check为最简单的筛素数方法，而pri为线性筛素数筛法</p>
-<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p>本文动图来自百度</p>
+<h2 id="鸣谢-amp-声明"><a href="#鸣谢-amp-声明" class="headerlink" title="鸣谢&amp;声明"></a>鸣谢&amp;声明</h2><p>本文动图来自百度</p>
 
       
 
@@ -275,6 +275,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/【洛谷】P2089-烤鸡/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【洛谷】P2089-烤鸡
+        
+      </div>
+    </a>
   
   
     <a href="/Top/" id="article-nav-older" class="article-nav-link-wrap">
@@ -402,6 +411,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">高性能</a>
               </li>
              
@@ -418,7 +431,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">递归</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进制</a>
               </li>
             
             <div class="clearfix"></div>
