@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[洛谷】P1217 回文质数]]></title>
-    <url>%2F%E6%B4%9B%E8%B0%B7%E3%80%91P1217-%E5%9B%9E%E6%96%87%E8%B4%A8%E6%95%B0%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[【洛谷】P1579 哥德巴赫猜想（升级版）]]></title>
     <url>%2F%E3%80%90%E6%B4%9B%E8%B0%B7%E3%80%91P1579-%E5%93%A5%E5%BE%B7%E5%B7%B4%E8%B5%AB%E7%8C%9C%E6%83%B3%EF%BC%88%E5%8D%87%E7%BA%A7%E7%89%88%EF%BC%89%2F</url>
     <content type="text"><![CDATA[线性筛经典题 题目大意给一个数n，输出3个质数，使这三个质数之和为n 思路直接线性筛后用prime数组枚举。 算法简述 线性筛，就是上图的算法，代码中vis数组为标注此数是否被访问，而prime数组用于保存质数。 代码12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;cstdio&gt;#include&lt;time.h&gt;using namespace std;int n;int vis[20010],prime[5010];int cnt;void pri(int size)&#123; for(int i=2;i&lt;=size;i++) &#123; if(!vis[i]) prime[++cnt]=i; for(int j=1;j&lt;=cnt &amp;&amp; i*prime[j]&lt;size;j++) &#123; vis[i*prime[j]]=true; if(i*prime[j]==0) break; &#125; &#125;&#125;bool check(int x)&#123; for(int i=2;i*i&lt;=x;i++) if(x%i==0) return false; return true;&#125;int main()&#123; scanf("%d", &amp;n); pri(n); for(int i=1;i&lt;=cnt;i++) for(int j=i;j&lt;=cnt;j++) if(check(n-prime[i]-prime[j]) &amp;&amp; (n-prime[i]-prime[j])&gt;0 &amp;&amp; prime[i]&gt;0 &amp;&amp; prime[j]&gt;0) &#123; printf("%d %d %d", prime[i],prime[j], n-prime[i]-prime[j]); return 0; &#125; return 0;&#125; check为最简单的筛素数方法，而pri为线性筛素数筛法 鸣谢本文动图来自百度]]></content>
