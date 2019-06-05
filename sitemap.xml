@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wolf33blog.github.io/about/index.html</loc>
+    
+    <lastmod>2019-06-05T12:43:08.547Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wolf33blog.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-06-05T11:21:14.642Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wolf33blog.github.io/categories/index.html</loc>
+    
+    <lastmod>2019-06-05T11:16:37.677Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wolf33blog.github.io/%E5%BE%A1%E5%9D%82%E7%BE%8E%E7%90%B480%E9%97%AE%EF%BC%88%E5%AE%98%E6%96%B9%EF%BC%89/</loc>
     
     <lastmod>2019-05-22T10:08:09.807Z</lastmod>
@@ -40,13 +61,6 @@
     <loc>http://wolf33blog.github.io/%E3%80%90%E6%B4%9B%E8%B0%B7%E3%80%91P1598-%E5%9E%82%E7%9B%B4%E6%9F%B1%E7%8A%B6%E5%9B%BE/</loc>
     
     <lastmod>2019-05-11T08:55:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wolf33blog.github.io/about/index.html</loc>
-    
-    <lastmod>2019-05-11T08:48:52.000Z</lastmod>
     
   </url>
   
