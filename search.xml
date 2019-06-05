@@ -28,11 +28,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Before Reading]]></title>
-    <url>%2FTop%2F</url>
-    <content type="text"><![CDATA[在阅读以下内容前请先阅览此文，大概需要1分钟 使用说明：不建议手机党使用（因为我也没有看过手机的版本），电脑使用更佳。 电脑使用由于技术原因，建议缩小页面百分比至90% 左下角的地球为访客数量统计，如果不合适可以把鼠标移至地球上，然后缩小。 如果有任何bug或问题，请洛谷私信uid:101153 鸣谢：本站为个人站。 本站的建成感谢 Venus的帮助和答疑。 TBC.]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[【洛谷】P1217 回文质数]]></title>
     <url>%2F%E3%80%90%E6%B4%9B%E8%B0%B7%E3%80%91P1217-%E5%9B%9E%E6%96%87%E8%B4%A8%E6%95%B0%2F</url>
     <content type="text"><![CDATA[一道很有意思的题目 题目大意给一个区间，求出这个区间中既是回文数，又是质数的数。 等等，这关标签里面的深搜什么事？ 待我慢慢道来…… 题目思路首先，看到这个题目的明显感觉：先线性筛之后再判断回文不就行了 紧接着发现：这是1亿的数组？线性筛存得下吗？ 计算发现：好像是存的下的，大概90MB左右。 写出了一个小函数 1234567891011121314void check()&#123; for(int i=2;i&lt;=maxn;i++) &#123; if(!vis[i]) pri[++pri[0]]=i; for(int j=1;j&lt;=pri[0]&amp;&amp;i*pri[j]&lt;=maxn;j++) &#123; vis[i*pri[j]]=1; if(i%pri[j]==0) break; &#125; &#125;&#125; 复杂度O(nlogn)，应该可以用。 然后判断回文数： 12345678910111213bool check_prime(int x)&#123; int y=x,num=0; while(y!=0) &#123; num=num*10+y%10; y/=10; &#125; if(num==x) return 1; else return 0;&#125; 这里也很容易理解，把x翻转过来，如果x=num就表示是回文 第一次提交： 1234567891011121314151617181920212223242526272829303132333435363738394041#include&lt;cstdio&gt;using namespace std;int l,r;bool vis[1000010];int pri[1000010];void check()&#123; for(int i=2;i&lt;=r;i++) &#123; if(!vis[i]) pri[++pri[0]]=i; for(int j=1;j&lt;=pri[0] &amp;&amp; i*pri[j]&lt;=r;j++) &#123; vis[i*pri[j]]=1; if(i%pri[j]==0) break; &#125; &#125;&#125;bool check_hw(int x)&#123; int y=x,num=0; while(y!=0) &#123; num=num*10+y%10; y/=10; &#125; if(num==x) return 1; else return 0;&#125;int main()&#123; scanf("%d%d", &amp;l, &amp;r); check(); for(int i=1;i&lt;=1000100;i++) if(pri[i]&lt;=r &amp;&amp; pri[i]&gt;=l &amp;&amp; check_hw(pri[i])) printf("%d\n", pri[i]); return 0;&#125; re了四个点（提交记录) TBC. 鸣谢&amp;声明：一道经典的线性筛题目 回文质数题解1 回文质数题解2 回文质数题解3]]></content>
@@ -49,6 +44,11 @@
       <tags>
         <tag>模拟</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Before Reading]]></title>
+    <url>%2FTop%2F</url>
+    <content type="text"><![CDATA[在阅读以下内容前请先阅览此文，大概需要1分钟 使用说明：不建议手机党使用（因为我也没有看过手机的版本），电脑使用更佳。 电脑使用由于技术原因，建议缩小页面百分比至90% 左下角的地球为访客数量统计，如果不合适可以把鼠标移至地球上，然后缩小。 如果有任何bug或问题，请洛谷私信uid:101153 鸣谢：本站为个人站。 本站的建成感谢 Venus的帮助和答疑。 TBC.]]></content>
   </entry>
   <entry>
     <title><![CDATA[Test]]></title>
